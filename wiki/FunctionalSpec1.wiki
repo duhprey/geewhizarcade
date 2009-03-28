@@ -1,0 +1,226 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+== Overview ==
+
+The Foundation boils down to one key feature.  Putting the game players and the game makers in one location, resulting in better games.  This means there are three main activities in the Foundation.  Playing games, making games and communicating with each other.  The rest of the functionality serves to increase the likelihood that those three things happen.
+
+'''The Geewhiz Foundation is the YouTube of Video Games'''
+
+This spec is not complete and remains a work in progress.  Any gaps in it should be assumed to actually be gaps that must be filled... please try to fill them.
+
+== Purpose ==
+
+This version of the spec, milestone 1, encompasses the first working version of the spec.  Many sections are duplicated with the main spec, but this is a way to track both the big picture and the work picture.
+
+== Motivation ==
+
+Why would players and developers want to communicate directly?  Players get to influence the games they love.  Developers get subscriptions from happy players.  Another way to look at it is a feedback loop.  A new game player tries the system out, plays some games and has fun.  He discovers over time that there are many games and they are continually being modified by the large number of people on the system.  He starts thinking of his own ways to change the games, adding his own levels or characters.  As a result of this, people start playing with his mods.  He starts making a little money from this.  Slowly but surely he is converted into a developer and there is one more developer creating content for new users.  The game industry has started to grow into a mod community.  This technology is the next step in that evolution, blurring the distinction between consumers and creators.
+
+== Competition ==
+
+There are many current systems that share some aspect with the Foundation.  However four are of particular interest.
+
+* Virtual reality web (Interreality.org and others) - This is the idea of turning the web browser into a 3d browser and giving people as easy an ability to make 3d applications as they do web applications.  If the 3d web were where the normal web (web2.0) is just getting to, there would be some significant concern, as most likely it would be very straight forward to build games with the technology.  However, even with AJAX technology and others, the attempts at getting speed require individual acceleration.  Because the data is proprietorially stored in the Foundation, it is possible to take advantage of extra knowledge about the structure of the data to exploit caching and keep the speed unbelievably high.
+
+{{Note|'''General Note''' [ndf] I wonder if storing the database ourselves is very limiting.  I've seen many discussions about the failure of keeping all the data tied to one location.  However, this is how Google works, and they don't fail.  One possibility may be to open the APIs enough, but we would still need to protect things by access.  Take explain shorter, take for instance this: http://feeds.feedburner.com/~r/oreilly/radar/atom/~3/375933559/social-networking-for-books.html  O'Reilly talks about specialized networks of reading friends.  The foundation would be a specialized network of gaming friends, it may be in our best interest to open that social network aspect as much as possible.  But if we open the assets obviously we may lose them, so there's something else that needs to be considered there.}}
+
+* Second Life - A successful system that's gaining a lot of support.  This system does have the proprietary data format behind it to cover the speed issue itself and it has a growing critical mass.  The engine is, however, very limited in scope.  It is hard for just any game developer to look at this system and decide its worth pursuing.  The Foundation's focus is on being as flexible as possible to the game developer including going as far as open source component plugins that can be potentially modified by some developers.
+
+* Multiverse - A MMOG development system which has many similarities to the foundation.  It is built for developers and has many of the same open-source components that the Foundation uses by default.  It has a developer's marketplace where people can easily find asset creators who are already familiar with the tools.  Its built around modern MMOG technologies and can very quickly download high quality game content.  But the Geewhiz Foundation hosts all the content itself so that players' access to one game gives them access to all games, at one set rate.  Multiverse provides all the same advantages to the developers that the Foundation does, but Multiverse fails to provide the advantages to the players, and loses out on the communication and conversion that the Foundation focuses.
+
+* Gametap - This system takes existing games and lets players play them through a single web entry.  Many of the features described here, especially persistent pause, are *not* available for hte games there.  The biggest risk to geewhiz from them is the inertia they already have.  They are also not developer focused at all and use only existing, aged games.
+
+=Main Navigation=
+
+The navigation consists of a dashboard like the OSX model.  The 2 activites below divide the dashboard into two sections split by the Community buttons (Forums, described below and Chat) and two subtle verticle lines.  Buttons on the left are meant for game play and buttons on the right are meant for game creation.  When a button/icon is hovered over it should enlarge immediately and use browser tool tips to give a description.
+
+When you first show up the dialog asking for your email address shows up (see Registration/Login) and says "Welcome to the Geewhiz Foundation.  Would you like to play?"
+
+{{Note|'''General Note'''
+All navigation should be picture based with popups of text describing the button.  This may allow us to change only the popup texts, but not the button images (unless the button images make assumptions about common marks that aren't true.)
+
+The icon should be rather consistent for various types.  For instance, there are many icons for Yes/No or Okay/Cancel.  These should all be exactly the same.  Also on each of the List types below there is an icon for "Create New" of a game, asset or level.  This icon should have the same image, but a different popup label depending on where it is.
+}}
+
+When a button is clicked the window should fade in as however described for the particular feature as below.  The button itself will raise and stay raised while that window is active.  There are no border to the windows making it feel like the entire aspect has changed to this new function.  Think of changing views as the screen morphing between these views like some futuristic interface.  You should feel slightly cooler for having used this system :).
+
+{{Note|'''Technical Note'''
+This could be implemented as a tabbed widget, if its possible to replace the tabs display with this dashboard style.}}
+
+The default view for a new user is the games browser.  However when a user logs out, whichever view was last ready is the view that should come back up immediately on relogin.  Unless the window is described as a dialog, the navigation dashboard can be clicked at any time during any of the interactions and takes the user immediately to that view.  Any dialog boxes will lock out the dashboard while active.
+
+----
+[[Image:NavConcept.jpg|center|thumb|480px|Main Navigation Concept]]
+----
+
+==Forums==
+
+The forum button brings up a list display showing all current forums in a list format. Each forum has a title and a list of at most 3 moderators.
+
+Clicking on the forum brings up a list of topics, the number of replies to that topic, the number of topic views and the date/time/username of the most recent reply.  These are in a columnar spreadsheet like format with column headings that can be clicked to be a sort between ascending/descending order.  The default sorts on the most recent topic conversation.  There is a button at the bottom-right (see concept) when says "Create New Topic" in a tool-tip.  When this is clicked it first shows a dialog asking for the topic title and then when the title is entered (unless cancelled) it goes to a comment entering screen.
+
+{{Proposed|User voting/ratings of topics for usefulness or awesomeness.
+Filtering offensive words (at user's preference)}}
+
+When the user clicks on a topic it will show a list of replies in a scrollable pane.  Each reply starts with the date/time it was posted on the left, email account on the right and the text below.  The replies are shown in a row fashion this way with a large button at the top to toggle time-sort order (default to oldest first)  At the bottom-right of the scrollable pane is a reply button that can be clicked at any point during the scrolling.  This takes the user to a rich-text entry dialog with a submit and cancel.  Cancel takes them back to the previous display and submit adds the reply into the topic and brings them back to the reply list.
+
+[[Image:ForumConcept.png|left|thumb|320px|Forum Topics List]]
+[[Image:TopicConcept.png|center|thumb|320px|Forum Topics List]]
+[[Image:NewForumTopic.jpg|left|thumb|280px|New Topic Dialog]]
+[[Image:PostConcept.png|center|thumb|320px|Conversation List]]
+[[Image:ForumComment.jpg|left|thumb|280px|New Reply Dialog]]
+
+=Activity 1: Play Games=
+
+==Registration/Login/Cookies==
+
+Registration should be an email account. Its the usual form of emailing back the starting password.  Registration and login are the same page. If the email account is unknown, then it should generate the new password and send the email, but the second screen for entering the password will look the same (see below).  If the person is currently logged in then just ignore it and take them to the login page.  This has the usual "Or if you've forgotten your password" with a button to "Email password"
+
+{{Proposed| Handles (as defined by the account manager) can be used in place of email. }}
+
+{{Proposed| We'll wait until the next milestone to worry about when they've actually decided to start paying. They can play with the entire system for free for a set period having only given an email address.}
+
+The login page will ask for the password.  The cookie will store for one month and will take them immediately to the post-login view.
+
+{{Proposed| Have a check box to decide when to store the cookie.}}
+
+----
+[[Image:LoginDialog.png|left|thumb|256px|Login or Registration View Concept]]
+[[Image:PasswordDialog.png|center|thumb|256px|Password View Concept to be shown after Login/Reg view]]
+----
+
+[[Image:LoginFlow.jpg|center|thumb|320px|Flow chart of the login process]]
+
+==Game Downloader==
+
+Once a new user has typed in an email, the system will begin downloading the KERNEL (milestone one will be a really laggy version, next milestone we'll add ODE to the download to increase predictive accuracy.)  Each time the user logs in the system will check to make sure an up-to-date version of the KERNEL is installed.  When the gamescript starts a system the asset (console or other system) will be checked and downloaded then.  If not it should install them in the background.  In all cases it should let the user know what is going on in a dialog box (see concept) before the web browser sends its warning.
+
+----
+[[Image:UpdateDialog.jpg|center|thumb|300px|Dialog Concept to be shown before downloading a new version]]
+----
+
+==Browsing Games==
+
+The browse games button is the first button in the play games section on the dashboard.  It is also the default view when the system first starts.  The view is a stylistic spreadsheet showing the games representative icon on the far left without a column heading.  The game name is to the right of that with the column heading "Name".  The third column is the genre and the fourth column is the developer.  The view is scrollable.
+
+Clicking on the column heading will toggle between ascending and descending order (A to Z is ascending) with the first click defaulting to ascending.  The first column is default clicked ascending.
+
+Clicking anywhere on the line will scroll the spreadsheet showing the icon, name, genre, developer and description and asking for confirmation to start playing.  If they click on a different game that game description scrolls back up and the new game scrolls down.  If they click the play button, then the game downloads and they play.
+
+There is a dialog for if the game already a pause.  The dialog should ask if they want to continue or not and delete the currently existing pause.
+
+----
+[[Image:Browser.png|center|thumb|320px|Games Browser Concept]]
+----
+
+==Download and Play==
+
+The kernel will start up and start OGRE.  OGRE should start looking for data immediately (i.e. query.)  The game script should begin executing immediately on the server and set the first level.  The level will begin downloading based on the queries provided by OGRE.  As each item is fully downloaded it should be added to the query result and as a result of that will be drawn.
+
+This system will do extrapolation only from responses by the server (meaning OGRE should detect the velocity and update its internally cached position based on frame updates until the EM updates the entity through the network.)  It will not do predictive extrapolation from the user input.  This means that when the user presses something in the console window they will have to wait round-trip for it to show up that its responding (not including GUI related which is all run locally.)  The very next step in milestone two should be inclusion of an ODE system on the client side to increase extrapolation accuracy, but will increase start time.  For this we produce a stable interface which should be easy to regress for the 30 second start and can build from there.
+
+----
+[[Image:OgreLoad.jpg|center|thumb|320px|Ogre View after clicking to start a game, but before its loaded anything]]
+----
+
+==Persistent Pause/Saves==
+
+The saves button is the other button in milestone one on the play games section of the dashboard.  Clicking on this will bring up a list of all available Pauses and Saves for all games (grouped by game).  This will have a single line with the game icon and name and then an indented line showing first the pause if available (with the VCR style pause icon) and text showing how long the game has been played.  Below the pause will be shown the saves (with a file icon) and the timestamp of when the save occured.  These are shown most recent to least recent.  The games are sorted by name.
+
+{{Note|Since the server is constantly simulating the game and receiving heartbeat updates from the client (including if the user is not actually doing anything at that moment... a "not doing anything" control message is sent...) at any point the server will keep the current state of the game stored in persistent storage (cached) and if the heartbeat goes away will immediately stop simulating past that point.  This persistent storage is assigned to the user as soon as they begin the game and gets overwritten as the game is played (including if they restart.)  There is only ever one pause available.}}
+
+When a game is loaded, the system will put up a dialog with the following:  "Hi, please be aware that by loading this game you will overwrite your currently paused instance of "Name of Game".  Do you really want this?"
+
+Saves are determined through the script API by the game developer.  See below.
+
+----
+[[Image:SavePauseBrowser.png|left|thumb|320px|List of Available Persistences]]
+[[Image:LoadGameDialog.png|center|thumb|320px|Loading old Saved game warning dialog]]
+----
+
+=Activity 2: Make Games=
+
+==Creating a New Game/Deploying a Game==
+
+The first button in the developer group on the dash board brings up a list of games started by this user.  The list looks exactly like the game browser, but does not include the developer (as that would be obvious.)  It has a another column specific here which is the deploy date, which is blank if the game hasn't been deployed yet.  It also shows a button at the top of the page above the Icons and next to the column headings (see concept) which has a "+" icon.
+
+If the user clicks on the create new game or clicks on an existing game, the new window view is the same.  It is a game description form.  If it is an existing game the form is filled out with the existing info, but clicking in any of the regions allows the user to change the text in those regions.  At the bottom of the view (but above the dashboard) is a button for submit and one for cancel.  If the user clicks either it takes them back to the previous view, but submit also stores the changes and updates the previous view with those changes.  For a new game all entries are left blank but with a default icon.
+
+In the form are a button representing the icon, if clicked it brings up a local file browser dialog looking for an image to upload to the server.  This should recognize any image file format.  The "Name" label next to the text entry slot.  The genre drop-down box which contains a list of standards but can also be typed into.  The ability to type new entries requires that they scroll the box to the bottom and select a blank entry and start typing.  This should be made difficult so that they take an effort to match currently existing genres instead of creating new retardedly named ones.  Next to this is the deploy date (or the text "Undeployed") and an icon which when hovered over says "Deploy this Game" in a tool-tip.  If the user clicks this button a confirmation dialog pops up with the text "Do you want to deploy?  Remember all changes after this point are done in public." and yes or no buttons.  If the yes button is clicked, the game is deployed and available to the public.  Below that is the game description text box which is large enough to hold 250 characters all on the screen and will not allow them to enter any more than that.  Finally below that is the label and dropbox for DefaultScript.  The dropbox shows all Script type assets which are uploaded to this game and selection means that script will be the one which starts running on the server.  See below for details on uploading scripts.  See the concept for placement.
+
+When a new game is created, a new Forum (see above) for that game is created for discussion about that game.
+
+----
+[[Image:CreateGameBrowser.png|left|thumb|320px|Game List View Concept]]
+[[Image:GameEdit.png|center|thumb|320px|Game editor view concept]]
+
+[[Image:DeployDialog.png|center|thumb|340px|Deployment Confirmation Dialog]]
+----
+
+==Adding an Asset==
+
+The next button on the dashboard is the asset list.  This shows all the assets created by the user.  This is also a spreadsheet style list.  The first column is the resource name, the second column is its type, the fourth column shows the date modified.  Just like before the columns can be toggled to sort.  The display defaults to "My Assets" which shows all the assets for this user, but the drop-down can be clicked to show all assets (regardless of who made them).
+
+{{Proposed|If it doesn't seem complicated, this games list should include those in which this user's account can be traced.  Meaning they have an asset or level associated with the game.}}
+
+Types are Object, 3d Model, 2d Image, Sound, Music, Script, Text.
+
+{{Proposed|Deal with Collada}}
+
+Clicking on an asset brings up a new view showing the name and type.  Name has an entry and type has a drop box.  There are also two buttons one with a down arrow and one with an up arrow.
+
+{{Note|The usage to edit an asset should be that the artist clicks the download which brings up a local editor specific to that file (e.g., blender or sound editing program) and when they have finished editing they save a local copy which they browse to when the click on "Upload".}}
+
+There is a "browse" button for uploading the file.  This is a GWT widget (the FileUpload).  They find the file and then when they click the upload it goes to the site.  However, the change is not committed to the database until they hit the okay.  If they hit the cancel the file will not go into the DB.
+
+The new asset button sits in the same location as the new game button shown above.  See the concept.  Clicking on this brings up a dialog asking for name with an entry and type with a dropbox as above. There are two buttons for okay and cancel at the bottom of the dialog.  Cancel drops it out and Okay puts in a new entry with a default asset and version 0 (current date) into the list described above.  This entry can then be edited as before.
+
+Objects are essentially just name/value pair sets (see specialized concept below.)  The value can be some primitive such as text or number.  It can also be a pointer to some other asset (including other objects.)  The most common pointer is going to one for "Graphical3d" which points to a 3d model asset.    The object is the only one that has an internal editor.  Instead of going to a file dialog brings up a window showing all the name value pairs for the object.  Clicking on a name or a value will edit that and next to each is row is an "x" button.  This deletes the pair.  There is also a "+" icon which when hovered over says "Add new pair" in a tool-tip.
+
+{{Proposed|Pointers are edited through a dialog box in the object editor and clicking on the pointers in these objects is a shortcut to bringing up a display of the asset itself.}}
+
+{{Note|'''Technical Note'''
+Although we have the constraints and delegates on these Objects, we'll leave worrying about them out of the funcspec}}
+
+----
+[[Image:CreateAssetBrowser.png|left|thumb|320px|Assets List selected in "My Assets Only" mode]]
+[[Image:NewAssetDialog.png|center|thumb|260px|New Asset Dialog ]]
+
+[[Image:BinaryEdit.png|left|thumb|280px|Generic Asset Editor]]
+[[Image:ObjectEditor.png|center|thumb|320px|Object Asset Editor]]
+----
+
+==Adding a Level==
+
+The next button on the dashboard is the level editor.  This looks exactly like the asset list shown above, but does not show a type (as all types are "Level")  Levels are essentially a very special asset.  Much like above but with the addition of a column for the game with which it belongs.  There is a "New Level" icon which only asks for the level's name and game and then inserts an entry.  Much like above the title starts out with "My Levels" but can be clicked to show the levels by game (regardless of level creator.)
+
+When an entry is clicked whether new or not, the view changes to show the object instances on the left, the WYSIWYG editor in the middle and the object pallete on the right.  If the level has already been populated once then the object instance are not empty and the WYSIWYG shows something.  Otherwise it shows the origin axis as red/green/blue lines in basis for with X Y and Z labels at the end of the respective lines.
+
+Assets are added to the level by dragging from the palette into the WYSIWYG view.  They are placed in the closest grid spot and can then be moved around based on the movement controls described next.  The view of the object will be based on its linked "Graphical3d," but if there isn't one it will show a 3d questionmark.  Once dragged the object will also get a new instance entry in the view on the left.  This instances name will be the prototype followed by an incrementing number such as "Man1", "Man2" etc.  The instance objects will be an exact copy of the prototype object, but by double clicking on the instance a dialog pops up with a display allowing edits of the instance over the the prototype.
+
+Double-clicking an object in the pallete will bring up an Object editor window described like that above.  Double-clicking on an object in the instance window will do the same, but in this case it will change values specific to that instance.  Any changes done to a prototype object from the pallete will change all the values for all instances of that prototype unless they've been overwritten in that particular instance.
+
+Movement of assets starts by selecting them.  Clicking on an asset in the WYSIWYG or in the instance list will highlight it by changing its outline color to green in the WYSIWYG and using a standard highlight in the instance window.  The object can be moved by grid spaces using the cursor keys which move it along the x and z (z is up/down) and the y can be modified by the pgup/pgdown combo.  Pressing alt and the same keys will rotate the object.  The mouse is used only to modify the camera into the WYSIWYG.  click-draggin on the display causes it to pan in the x and y plane relative to the current facing of the mouse.  Alt-click-dragging rotates the camera about its current focus point and shift-click-drag zooms in and out of the current focus point.  The focus point begins at the origin with the camera 50 grid units away.
+
+{{Proposed|add discussion of other level types like large (i.e., paging/streaming) terrain, portal based, etc}}
+
+----
+[[Image:MyLevels.jpg|left|thumb|320px|Levels List selected in "My Levels Only" mode]]
+[[Image:LevelEdit.jpg|center|thumb|330px|Level Editor Concept]]
+----
+
+==Writing the Gamescript==
+
+At a low level there should be a wrapper call for every kernel API available.
+
+The primary need in the gamescript is to set and change the currently loaded level and change name/value pairs in any object instance.  Note it is not possible to add values from within the script, this should be done to object assets as prototypes (issuing default values for a given name.)  The reason not to add and remove is that the system can more efficiently deal with the object if it has a known size and there's no reason not to have these values attached at least in a default form at creation time.
+
+==Query Language==
+
+The query language consists (in this version) of one query:  "All Objects"
+
+The query actually means all objects in the current level.
+
+=Server Perspective=
