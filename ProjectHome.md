@@ -1,0 +1,1 @@
+This is a website built on Google Web Toolkit which lets people construct games, upload sounds and models, and python scripts to control it.  It also lists all games published to the site so that anyone else can play them.  This is done through the browser plugin which links to Ogre and CEGUI and connects back to the server and streams the assets and scripts etc.

@@ -1,0 +1,33 @@
+# The Basics #
+  * All basic kernel capability (objects, assets, RPC)
+  * Simple console (text based)
+    * Text Adventures
+    * Roguelike games
+# Graphical Games and other Game Components #
+  * 3d graphics (We could probably pull off 2d graphics (and by that I mean sprites) as a subset of 3d if we felt like it)
+  * Physics
+  * Sound/Music
+  * Programmable input (keyboard, mouse, gamepads, joysticks)
+  * Google ad revenue w/ only ''our'' games being served
+# ''Faux'' Marketplace #
+  * Asset permissions/sharing
+  * Collect Statistics (Asset use, game plays, user logins, etc)
+  * Site Security (login, upload/download, user page, etc)
+# Speed Streaming #
+  * Compiled assets (COLLADA [even FBX](or.md) to our streaming/progressive mesh format, etc)
+  * Clever use of compression techniques and LoD to get a playable level to the user ASAP and background transferring to fill in details after the fact
+  * Modern databases, database optimization and client prediction
+  * Bittorrent (or bittorrent-like) asset dissemination system
+# Social Gaming #
+  * LAN/Internet Style Multiplayer Gaming
+  * Game lobbies
+  * Game matcher (Instant play)
+  * Stats/Game ladders
+  * Game Badges/Achievements
+  * Hosting and Joining games
+# Robustness #
+  * A milestone primarily for the asset creators, game designers and programmers
+  * This is where we do the handy features like inline script unit tests, debugging, etc.
+  * Also, COLLADA/FBX level importers (and other formats) in addition to just models and   COLLADA physics support
+  * CgFX importer/compiler
+  * Easy achievement creator
